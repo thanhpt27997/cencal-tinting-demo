@@ -1,0 +1,83 @@
+.leftSidebar {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  border-right: 1px solid #2F323E;
+
+  font-size: 14px;
+  line-height: 20px;
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 16px;
+    border-bottom: 1px solid #2F323E;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  .nav {
+    margin-top: 12px;
+
+    svg path {
+      stroke: #C6C8D2;
+    }
+
+    li {
+      display: flex;
+      justify-content: flex-start;
+      align-content: center;
+      padding: 8px 16px;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+
+      span {
+        display: inline-block;
+        margin-left: 8px;
+      }
+
+      &.active {
+        color: #2E7FF1;
+        background: #2E7FF11A;
+        border-right: 4px solid #2E7FF1;
+
+        svg path {
+          stroke: #2E7FF1;
+        }
+      }
+
+      @media(min-width: 1168px) {
+        &:hover {
+          background: #2E7FF11A;
+          border-right: 4px solid #2E7FF1;
+
+          svg path {
+            stroke: #2E7FF1;
+          }
+        }
+
+      }
+    }
+  }
+
+  .user {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    border-top: 1px solid #2F323E;
+
+    span {
+      display: inline-block;
+      margin-left: 8px;
+      font-weight: 600;
+    }
+  }
+}
