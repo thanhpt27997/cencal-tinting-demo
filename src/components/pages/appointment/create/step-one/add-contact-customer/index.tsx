@@ -68,7 +68,7 @@ const AddContactForm: React.FC<Props> = (props) => {
 
     setLoading(true)
     try {
-      await axiosClient.post('/customers', formData)
+      await axiosClient.post('/api/customers', formData)
       setFormData({
         name: '',
         email: '',
