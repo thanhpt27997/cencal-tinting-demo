@@ -1,0 +1,162 @@
+.container {
+  padding: 16px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 12px;
+}
+
+.wrapperSelections {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--greyscale-600, #2F323E);
+
+  > div {
+    width: calc(50% - 8px);
+
+    &:not(:first-child, :nth-child(2)) {
+      width: 100%;
+    }
+  }
+}
+
+.manualAddVehicle {
+  color: #2E7FF1;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 22px;
+  margin: 24px 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  @media(min-width: 1168px) {
+    &:hover {
+      color: #ededed;
+    }
+  }
+}
+
+.clearSelection {
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+  padding: 10px;
+  transition: all 0.2s ease-in-out;
+  @media(min-width: 1168px) {
+    &:hover {
+      color: #6E6F76;
+    }
+  }
+}
+
+.selection {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &:not(:last-child) {
+    margin: 0 0 24px;
+  }
+
+  label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    color: #F5F5F5;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 22px;
+    margin: 0 0 4px;
+
+    > span {
+      color: red;
+      padding-left: 4px;
+    }
+  }
+
+
+}
+
+.dropdown {
+  position: relative;
+  width: 100%;
+
+  &:not(:last-child) {
+    margin-bottom: 12px;
+  }
+}
+
+.dropdownBtn {
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 400;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #2F323E;
+  border: none;
+  color: #7F859F;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+}
+
+
+.arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  font-size: 4px;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  height: 10px;
+  width: 10px;
+  transition: all 0.2s ease-in-out;
+
+  &.rotate {
+    transform: translateY(-50%) rotate(225deg);
+  }
+}
+
+.dropdownContent {
+  border-radius: 8px;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 100%;
+  border: 1px solid #2F323E;
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  max-height: 200px;
+  overflow-y: scroll;
+  z-index: 1;
+  background: #18181B;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.option {
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.option:hover {
+  opacity: 0.7;
+}

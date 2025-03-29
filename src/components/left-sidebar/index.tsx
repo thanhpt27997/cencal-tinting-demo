@@ -12,42 +12,35 @@ import Package from "@/svg-icon/package";
 import User from "@/svg-icon/user";
 import CashMoney from "@/svg-icon/cash-money";
 import NewsPaper from "@/svg-icon/news-paper";
+import {usePathname} from "next/navigation";
+import Link from "next/link";
 
-// import {INavigationItem} from "@/interface/nagivation.interface";
 
-export interface INavigationItem {
+interface INavigationItem {
   logo: JSX.Element,
   title: string,
   key: string
+  href: string
 }
 
 const navigations: INavigationItem[] = [
-  {title: "Proposals", key: "PROPOSALS", logo: <Proposal/>},
-  {title: "Services", key: "SERVICES", logo: <Car/>},
-  {title: "Vehicle Rules", key: "VEHICLE_RULES", logo: <Money/>},
-  {title: "Appointments", key: "APPOINTMENTS", logo: <CalendarBlank/>},
-  {title: "Inventory", key: "INVENTORY", logo: <Package/>},
-  {title: "Contacts", key: "CONTACTS", logo: <User/>},
-  {title: "Transactions", key: "TRANSACTIONS", logo: <CashMoney/>},
-  {title: "Invoices", key: "INVOICES", logo: <NewsPaper/>},
+  {title: "Proposals", key: "PROPOSALS", logo: <Proposal/>, href: "/proposal"},
+  {title: "Services", key: "SERVICES", logo: <Car/>, href: "/service"},
+  {title: "Vehicle Rules", key: "VEHICLE_RULES", logo: <Money/>, href: "/vehicle-rule"},
+  {title: "Appointments", key: "APPOINTMENTS", logo: <CalendarBlank/>, href: "/appointment"},
+  {title: "Inventory", key: "INVENTORY", logo: <Package/>, href: "/inventory"},
+  {title: "Contacts", key: "CONTACTS", logo: <User/>, href: "/contact"},
+  {title: "Transactions", key: "TRANSACTIONS", logo: <CashMoney/>, href: "/transaction"},
+  {title: "Invoices", key: "INVOICES", logo: <NewsPaper/>, href: "/invoice"},
 ]
 export default function LeftSidebar() {
 
-  const [tab, setTab] = React.useState<INavigationItem>({
-      title: "Appointments",
-      key: "APPOINTMENTS",
-      logo: <CalendarBlank/>
-    },
-  )
+  const pathname = usePathname()
 
   const leftSidebarClass = classnames({
     [styles.leftSidebar]: true,
     ['left__sidebar']: true
   })
-
-  const onChangeTab = React.useCallback((nav: INavigationItem) => {
-    setTab(nav)
-  }, [])
 
   return (
     <div className={leftSidebarClass}>
@@ -59,15 +52,14 @@ export default function LeftSidebar() {
           {navigations.map((nav: INavigationItem) => {
             const navItemClass = classnames({
               [styles.navItem]: true,
-              [styles.active]: tab.key === nav.key
+              [styles.active]: pathname === nav.href
             })
             return (
-              <li
-                className={navItemClass} key={nav.key}
-                onClick={() => onChangeTab(nav)}
-              >
-                {nav.logo}
-                <span>{nav.title}</span>
+              <li className={navItemClass} key={nav.key}>
+                <Link href={nav.href}>
+                  {nav.logo}
+                  <span>{nav.title}</span>
+                </Link>
               </li>
             )
           })}

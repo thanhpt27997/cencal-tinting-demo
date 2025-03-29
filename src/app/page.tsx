@@ -1,15 +1,12 @@
 import React from 'react'
-import dynamic from 'next/dynamic'
+import Link from "next/link";
 
-const LeftSidebar = dynamic(() => import('@/components/left-sidebar'))
-
-const RightContainer = dynamic(() => import('@/components/right-container'))
 
 export default function Dashboard() {
-    return (
-        <React.Fragment>
-            <LeftSidebar/>
-            <RightContainer/>
-        </React.Fragment>
-    );
+  return (
+    <section id='home__page'>
+      <span>Welcome to Cencal Tinting Demo</span>
+      <Link href={'/appointment'}>Go to Dashboard</Link>
+    </section>
+  );
 }

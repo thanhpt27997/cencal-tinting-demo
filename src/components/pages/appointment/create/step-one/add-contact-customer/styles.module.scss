@@ -1,0 +1,130 @@
+.addContactForm {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -100%;
+  width: 400px;
+  background: #18181B;
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  padding: 24px;
+
+  &.open {
+    right: 0;
+    z-index: 2;
+    opacity: 1;
+
+  }
+
+  &.loading {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .formHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h3 {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 30px;
+    }
+
+    button {
+      padding: 16px;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .footerForm {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+
+    button {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 22px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      border: 1px solid;
+      cursor: pointer;
+
+      &:first-child {
+        border-color: #2E7FF1;
+        color: #2E7FF1;
+        background: transparent;
+      }
+
+      &:last-child {
+        color: #fff;
+        background: #2E7FF1;
+        border-color: transparent;
+      }
+    }
+  }
+
+  form {
+    div {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 0 0 16px;
+    }
+
+    label {
+      width: 100%;
+      margin: 0 0 4px;
+      color: #F5F5F5;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 22px;
+
+      > span {
+        color: red;
+      }
+    }
+
+    input {
+      width: 100%;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border: none;
+      background: #2F323E;
+    }
+  }
+
+  .error {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: red;
+    margin: 8px 0;
+  }
+
+  .errInput {
+    border: 1px solid red;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0 16px;
+  background: rgba(0, 0, 0, 0.50);
+  backdrop-filter: blur(25px);
+  z-index: 1;
+}
