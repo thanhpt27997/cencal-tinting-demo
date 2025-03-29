@@ -29,7 +29,7 @@ const AddContactForm: React.FC<Props> = (props) => {
 
 
   const validate = () => {
-    let newErrors: { [key: string]: string } = {}
+    const newErrors: { [key: string]: string } = {}
 
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required'
