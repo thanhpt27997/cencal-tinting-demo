@@ -54,7 +54,7 @@ const StepOne: React.FC<Props> = (props) => {
       setLoading(true);
     }
     try {
-      const resCustomers = await axiosClient.get('/customers', {
+      const resCustomers = await axiosClient.get('/api/customers', {
         params: searchString ? {searchString} : {}
       });
 
